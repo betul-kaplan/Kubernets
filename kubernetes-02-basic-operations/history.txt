@@ -1,0 +1,70 @@
+    1  kubectl cluster-info
+    2  kubectl get node
+    3  kubectl api-resources
+    4  kubectl explain nodes
+    5  kubectl help
+    6  kubectl service help
+    7  clear
+    8  kubectl describe --help
+    9  clear
+   10  kubectl explain pods
+   11  kubectl create -f mypod.yaml
+   12  kubectl get pods -w
+   13  kubectl get rs -w
+   14  kubectl get rs
+   15  kubectl create -f mypod.yaml
+   16  kubectl get pods
+   17  kubectl get pods -o wide
+   18  kubectl describe pods/nginx-pod
+   19  kubectl get pods/nginx-pod -o yaml
+   20  kubectl delete -f mypod.yaml
+   21  kubectl api-resource
+   22  kubectl api-resources
+   23  clear
+   24  kubectl apply -f myreplicaset.yaml
+   25  kubectl get replicaset
+   26  kubectl get pods -o wide
+   27  kubectl get rs -o wide
+   28  kubectl delete replicaset nginx-rs
+   29  kubectl apply -f mydeployment.yaml
+   30  kubectl get deployments
+   31  kubectl get deployments,rs
+   32  kubectl get deployments,rs,po
+   33  kubectl get pods -o wide
+   34  kubectl describe po
+   35  kubectl get pods
+   36  kubectl exec nginx-deployment-6c8b449b8f-4drcw -- date
+   37  kubectl exec nginx-deployment-6c8b449b8f-4drcw -- cat /usr/share/nginx/html/index.html
+   38  kubectl exec -it nginx-deployment-6c8b449b8f-4drcw -- bash
+   39  kubectl get pod -o wide
+   40  kubectl get rs
+   41  kubectl scale deploy nginx-deployment --replicas=5
+   42  kubectl delete deploy nginx-deployment
+   43  mkdir deployment-lesson
+   44  cd deployment-lesson
+   45  kubectl apply -f clarus-deploy.yaml
+   46  kubectl get deploy,rs,po -l app=container-info
+   47  clear
+   48  kubectl rollout history deploy clarus-deploy
+   49  kubectl rollout history deploy clarus-deploy --revision=1
+   50  kubectl set image deploy clarus-deploy container-info=clarusway/container-info:2.0
+   51  kubectl apply -f clarus-deploy.yaml
+   52  kubectl get deploy,rs
+   53  kubectl edit deploy/clarus-deploy
+   54  kubectl get rs
+   55  kubectl get pods
+   56  kubectl rollout history deploy clarus-deploy
+   57  kubectl rollout history deploy clarus-deploy --revision=1
+   58  kubectl rollout history deploy clarus-deploy --revision=2
+   59  kubectl get po
+   60  kubectl delete deploy clarus-deploy
+   61  kubectl apply -f ./my-namespace.yaml
+   62  ls
+   63  kubectl apply -f ./my-namespace.yaml
+   64  kubectl create deployment default-ns --image=nginx
+   65  kubectl create deployment clarus-ns --image=nginx -n=clarus-namespace
+   66  kubectl get deployment
+   67  kubectl get deployment -n clarus-namespace
+   68  kubectl get deployment -o wide --all-namespaces
+   69  kubectl delete namespaces clarus-namespace
+   70  history > history.txt

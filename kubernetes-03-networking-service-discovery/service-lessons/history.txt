@@ -1,0 +1,40 @@
+    1  kubectl cluster-info
+    2  kubectl get no
+    3  mkdir service-lessons
+    4  cd service-lessons
+    5  k apply -f web-flask.yaml
+    6  ls
+    7  kubectl apply -f web-flask.yaml
+    8  clear
+    9  ls
+   10  kubectl get pods
+   11  kubectl apply -f forcurl.yaml
+   12  kubectl exec -it forcurl -- sh
+   13  kubectl scale deploy web-flask-deploy --replicas=0
+   14  kubectl scale deploy web-flask-deploy --replicas=3
+   15  kubectl apply -f web-svc.yaml
+   16  kubectl get svc
+   17  kubectl get ns
+   18  kubectl get pods -n kube-system
+   19  kubectl get svc -o wide
+   20  kubectl describe svc web-flask-svc
+   21  kubectl exec -it forcurl -- sh
+   22  kubectl get svc
+   23  kubectl exec -it forcurl -- sh
+   24  kubectl apply -f clarus-db.yaml
+   25  kubectl exec -it clarus-db -- sh
+   26  kubectl apply -f web-svc.yaml
+   27  kubectl get svc -o wide
+   28  kubectl exec -it forcurl -- sh
+   29  kubectl get svc -o wide
+   30  kubectl apply -f web-svc.yaml
+   31  clear
+   32  kubectl explain ep
+   33  kubectl get ep -o wide
+   34  kubectl scale deploy web-flask-deploy --replicas=5
+   35  kubectl get ep -o wide
+   36  kubectl scale deploy web-flask-deploy --replicas=2
+   37  kubectl get ep -o wide
+   38  kubectl scale deploy web-flask-deploy --replicas=0
+   39  kubectl get ep -o wide
+   40  history > history.txt

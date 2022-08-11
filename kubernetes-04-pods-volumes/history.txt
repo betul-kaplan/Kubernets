@@ -1,0 +1,20 @@
+    1  ls
+    2  kubectl apply -f .
+    3  ls
+    4  mkdir pvc-bound && cd pvc-bound
+    5  kubectl apply -f pv-3g.yaml
+    6  kubectl apply -f pv-6g.yaml
+    7  kubectl get pv
+    8  kubectl apply -f pv-claim-2g.yaml
+    9  kubectl get pvc
+   10  kubectl get pv
+   11  kubectl apply -f pv-claim-7g.yaml
+   12  kubectl get pv
+   13  kubectl get pv,pvc
+   14  kubectl delete -f
+   15  cd ..
+   16  mkdir emptydir && cd emptydir
+   17  kubectl apply -f nginx.yaml
+   18  kubectl exec -it nginx-pod -- bash
+   19  ctr container ls
+   20  history > history.txt

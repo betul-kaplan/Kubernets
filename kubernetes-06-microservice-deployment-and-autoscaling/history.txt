@@ -1,0 +1,44 @@
+    1  kubectl get no
+    2  mkdir microservices
+    3  cd microservices
+    4  mkdir to-do
+    5  cd to-do
+    6  clear
+    7  ls
+    8  cd ..
+    9  kubectl apply -f to-do
+   10  kubectl get pv
+   11  kubectl get pvc
+   12  kubectl get pods
+   13  kubectl get svc
+   14  kubectl exec db-deployment-84656b9bf4-6t7f4 -- sh
+   15  ls
+   16  kubectl exec -it db-deployment-84656b9bf4-6t7f4 -- sh
+   17  pwd
+   18  mkdir php-apache
+   19  cd php-apache
+   20  kubectl apply -f .
+   21  kubectl get po
+   22  kubectl get svc
+   23  cd ..
+   24  home/ubuntu/microservices
+   25  $ mkdir auto-scaling && cd auto-scaling
+   26  mkdir auto-scaling && cd auto-scaling
+   27  ls
+   28  kubectl apply -f .
+   29  kubectl delete -n kube-system deployments.apps metrics-server
+   30  wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.0/components.yaml
+   31  kubectl apply -f components.yaml
+   32  kubectl -n kube-system get pods
+   33  top
+   34  kubectl top nods
+   35  kubectl top nodes
+   36  kubectl top pods
+   37  kubectl run -it --rm load-generator --image=busybox /bin/sh
+   38  kubectl delete -A
+   39  kubectl delete all
+   40  kubectl delete --all
+   41  kubectl delete -all
+   42  kubectl delete -a
+   43  cd ..
+   44  history > history.txt

@@ -16,18 +16,18 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 variable "key-name" {
-  default = "oliver"   # change here
+  default = "firstkey"   # change here
 }
 
 locals {
-  name = "oliver"   # change here, optional
+  name = "betul"   # change here, optional
 }
 
 resource "aws_instance" "master" {
   ami                  = "ami-04505e74c0741db8d"
   instance_type        = "t3a.medium"
   key_name             = var.key-name
-  iam_instance_profile = aws_iam_instance_profile.ec2connectprofile2.name
+  iam_instance_profile = aws_iam_instance_profile.ec2connectprofile.name
   security_groups      = ["${local.name}-k8s-master-sec-gr"]
   user_data            = data.template_file.master.rendered
   tags = {
@@ -39,17 +39,18 @@ resource "aws_instance" "worker" {
   ami                  = "ami-04505e74c0741db8d"
   instance_type        = "t3a.medium"
   key_name             = var.key-name
-  iam_instance_profile = aws_iam_instance_profile.ec2connectprofile2.name
+  count = 4
+  iam_instance_profile = aws_iam_instance_profile.ec2connectprofile.name
   security_groups      = ["${local.name}-k8s-master-sec-gr"]
   user_data            = data.template_file.worker.rendered
   tags = {
-    Name = "${local.name}-kube-worker"
+    Name = "${local.name}-kube-worker-${count.index}"
   }
   depends_on = [aws_instance.master]
 }
 
-resource "aws_iam_instance_profile" "ec2connectprofile2" {
-  name = "ec2connectprofile2"
+resource "aws_iam_instance_profile" "ec2connectprofile" {
+  name = "ec2connectprofile"
   role = aws_iam_role.ec2connectcli.name
 }
 
@@ -161,9 +162,9 @@ output "master_private_dns" {
 }
 
 output "worker_public_dns" {
-  value = aws_instance.worker.public_dns
+  value = aws_instance.worker.*.public_dns
 }
 
 output "worker_private_dns" {
-  value = aws_instance.worker.private_dns
+  value = aws_instance.worker.*.private_dns
 }
